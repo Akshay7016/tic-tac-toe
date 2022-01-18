@@ -1,3 +1,5 @@
+// Try these in App.js.   In these Draw is not implemented
+
 import React, { useState } from 'react';
 import Icon from './components/Icon';
 
@@ -82,16 +84,6 @@ function App() {
     }
   }
 
-  const chechDraw = () => {
-    if (
-      itemsArray[0] !== "empty" && itemsArray[1] !== "empty" && itemsArray[2] !== "empty" &&
-      itemsArray[3] !== "empty" && itemsArray[4] !== "empty" && itemsArray[5] !== "empty" &&
-      itemsArray[6] !== "empty" && itemsArray[7] !== "empty" && itemsArray[8] !== "empty"
-    ) {
-      setWinMessage("Draw");
-    }
-  }
-
   const changeItem = (itemNumber) => {
     if (winMessage) {
       return toast(winMessage, { type: "success" });
@@ -105,9 +97,7 @@ function App() {
       return toast("Already filled!!!", { type: "error" });
     }
 
-    chechDraw();
     checkIsWinner();
-
   }
 
 
@@ -117,43 +107,27 @@ function App() {
       <Row>
         <Col md={6} className='offset-md-3'>
 
-          {winMessage === "Draw" ? (
+          {winMessage ? (
             <div className="bm-2 mt-2">
               <h1 className="text-success text-uppercase text-center">
                 {winMessage}
               </h1>
 
-              <Button color='danger' block onClick={reloadGame}>
+              <Button color='success' block onClick={reloadGame}>
                 Reload game
               </Button>
               <br />
             </div>
           ) : (
-            <div>
-              {winMessage ? (
-                <div className="bm-2 mt-2">
-                  <h1 className="text-success text-uppercase text-center">
-                    {winMessage}
-                  </h1>
-
-                  <Button color='success' block onClick={reloadGame}>
-                    Reload game
-                  </Button>
-                  <br />
-                </div>
-              ) : (
-                <h1 className="text-center text-warning">
-                  {isCross ? "cross" : "circle"} turns
-                </h1>
-              )}
-            </div>
+            <h1 className="text-center text-warning">
+              {isCross ? "cross" : "circle"} turns
+            </h1>
           )}
-
 
 
           <div className='grid'>
             {itemsArray.map((item, index) => (
-              <Card className='card-color' onClick={() => changeItem(index)}>
+              <Card color='warning' onClick={() => changeItem(index)}>
                 <CardBody className='box box-hover'>
                   <Icon name={item} />
                 </CardBody>
