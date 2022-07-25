@@ -1,0 +1,39 @@
+body {
+  background-color: #000000;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.box {
+  width: auto;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  font-size: 35px;
+  color: black;
+}
+
+/* .box-hover:hover{
+  background-color: dodgerblue;
+} */
+
+.cross-red {
+  font-size: 70px;
+  color: red;
+}
+
+.circle-green {
+  font-size: 70px;
+  color: green;
+}
+
+.card-color{
+  background-color:#51E1ED;
+}
